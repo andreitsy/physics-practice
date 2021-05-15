@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -15,22 +16,3 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-//import React from "react";
-//import { render } from 'react-dom';
-//import { ThemeProvider } from "@chakra-ui/core";
-//
-//import Header from "./components/Header";
-//import Todos from "./components/Todos";  // new
-//
-//function App() {
-//  return (
-//    <ThemeProvider>
-//      <Header />
-//      <Todos />  {/* new */}
-//    </ThemeProvider>
-//  )
-//}
-//
-//const rootElement = document.getElementById("root")
-//render(<App />, rootElement)
