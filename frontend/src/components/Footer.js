@@ -6,7 +6,7 @@ function Footer() {
       <footer class="py-5 bg-dark fixed-bottom">
         <div class="container">
           <p class="m-0 text-center text-white">
-            Copyright &copy; Andrei Tsypilnikov 2021
+          <a href="https://github.com/andreitsy/physics-practice"> Contact </a>
           </p>
         </div>
       </footer>

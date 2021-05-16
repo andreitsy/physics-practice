@@ -7,11 +7,19 @@ function Navigation(props) {
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container">
           <Link class="navbar-brand" to="/">
-            Physics practice
+            Physics Practice
           </Link>
-
           <div>
             <ul class="navbar-nav ml-auto">
+            <li
+                class={`nav-item  ${
+                  props.location.pathname === "/about" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/" ? "active" : ""
@@ -24,20 +32,11 @@ function Navigation(props) {
               </li>
               <li
                 class={`nav-item  ${
-                  props.location.pathname === "/about" ? "active" : ""
+                  props.location.pathname === "/news" ? "active" : ""
                 }`}
               >
-                <Link class="nav-link" to="/about">
-                  About
-                </Link>
-              </li>
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/contact" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/contact">
-                  Contact
+                <Link class="nav-link" to="/news">
+                  News
                 </Link>
               </li>
               <li
