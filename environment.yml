@@ -1,10 +1,17 @@
 name: physics-practice
+channels:
+  - conda-forge
+  - defaults
 dependencies:
   - python=3.9
   - numpy=1.20.1
   - sympy=1.8
   - pip=21.0.1
   - sqlalchemy=1.4.15
+  - antlr-python-runtime
   - pip:
     - fastapi==0.65.1
     - uvicorn==0.13.4
+    - pymongo==3.11.4
+    - motor==2.4.0
+    - fastapi-users[mongodb]

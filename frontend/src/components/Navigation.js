@@ -18,7 +18,7 @@ function Navigation(props) {
                 }`}
               >
                 <Link class="nav-link" to="/">
-                  Tasks
+                  Problems
                   <span class="sr-only">(current)</span>
                 </Link>
               </li>
@@ -38,6 +38,15 @@ function Navigation(props) {
               >
                 <Link class="nav-link" to="/contact">
                   Contact
+                </Link>
+              </li>
+              <li
+                class={`nav-item  ${
+                  props.location.pathname === "/profile" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/profile">
+                  Profile
                 </Link>
               </li>
             </ul>

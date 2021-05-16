@@ -1,6 +1,7 @@
 export { default as Navigation } from "./Navigation";
 export { default as Footer } from "./Footer";
-export { default as Tasks } from "./Tasks";
-export { default as Task } from "./Tasks";
+export { default as Problems } from "./Problems";
+export { default as Problem } from "./Problem";
 export { default as About } from "./About";
 export { default as Contact } from "./Contact";
+export { default as Profile } from "./Profile";

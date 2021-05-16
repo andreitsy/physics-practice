@@ -1,6 +1,6 @@
 import React from "react";
 
-function Tasks() {
+function Problems() {
   return (
     <div className="home">
       <div class="container">
@@ -9,7 +9,7 @@ function Tasks() {
            
           </div>
           <div class="col-lg-5">
-            <h1 class="font-weight-light">Tasks list</h1>
+            <h1 class="font-weight-light">Recent problems list</h1>
           </div>
         </div>
       </div>
@@ -17,4 +17,4 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default Problems;
