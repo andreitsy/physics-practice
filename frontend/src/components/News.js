@@ -1,6 +1,6 @@
 import React from "react";
 
-function Contact() {
+function News() {
   return (
     <div className="contact">
       <div class="container">
@@ -9,7 +9,7 @@ function Contact() {
             
           </div>
           <div class="col-lg-5">
-            <h1 class="font-weight-light">Contact</h1>
+            <h1 class="font-weight-light">News</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -23,4 +23,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default News;

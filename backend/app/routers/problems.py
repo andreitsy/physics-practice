@@ -6,7 +6,7 @@ from pydantic import UUID4
 from typing import List, Any
 from ..db.problems import problems_collection, ProblemCreate, Problem
 from ..dependencies import identify_problem_dict
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, Response
 from ..db.users import User
 from .users import fastapi_users
 
@@ -22,7 +22,7 @@ router = APIRouter(
 
 
 @router.get("")
-async def read_problems() -> List[dict[str, Any]]:
+async def read_problems(response: Response) -> List[dict[str, Any]]:
     c = problems_collection
     problems_list = list()
     async for p in c.find(
