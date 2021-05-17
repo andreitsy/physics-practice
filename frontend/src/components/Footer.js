@@ -3,10 +3,10 @@ import React from "react";
 function Footer() {
   return (
     <div className="footer">
-      <footer class="py-5 bg-dark fixed-bottom">
+      <footer class="py-1 bg-dark fixed-bottom">
         <div class="container">
           <p class="m-0 text-center text-white">
-          <a href="https://github.com/andreitsy/physics-practice"> Contact </a>
+          <a href="https://github.com/andreitsy/physics-practice/blob/main/LICENSE"> 2021  Copyright Info </a>
           </p>
         </div>
       </footer>

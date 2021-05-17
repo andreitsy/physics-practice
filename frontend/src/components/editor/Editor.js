@@ -1,20 +1,20 @@
 import React from "react";
-import MDEditor, { commands, ICommand, TextState, TextApi } from '@uiw/react-md-editor';
+import MDEditor, { commands } from '@uiw/react-md-editor';
 import katex from 'katex';
 import 'katex/dist/katex.css';
 
-const initialValue = `
-# Solution
-
-# Answer
+const initialValue = `#### Решение
+[comment]: <> (введите решение в это поле)
+Пример latex формулы:
 \`\`\`KaTeX
-% <-введите-ответ-здесь
+\\int_{-\\infty}^\\infty e^{-x^2} dx = \\sqrt{\\pi}
 \`\`\`
 `;
 
-export default function Editor() {
+export default function Editor({onChange}) {
   return (
     <MDEditor
+      onChange={onChange}
       value={initialValue}
       previewOptions={{
         components: {
@@ -42,7 +42,7 @@ export default function Editor() {
             return <code className={String(className)}>{txt}</code>;
           },
           execute: (state: commands.TextState, api: commands.TextApi)  => {
-            console.log('>>>>>>update>>>>>', state)
+            console.log('>>>>', state)
           },
         },
       }}

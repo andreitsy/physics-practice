@@ -13,7 +13,8 @@ logger = logging.getLogger(__file__)
 
 async def on_after_register(user: UserDB,
                             request: Request):
-    logger.info(f"User {user.id} has registered.")
+    logger.info(f"User {user.id} has registered. ")
+    logger.info(f"Request {repr(request)} has got.")
     await add_entity_user_solutions(user.id)
 
 
@@ -21,12 +22,14 @@ async def on_after_forgot_password(user: UserDB, token: str,
                                    request: Request):
     logger.info(f"User {user.id} has forgot their password. "
                 f"Reset token: {token}")
+    logger.info(f"Request {repr(request)} has got.")
 
 
 async def after_verification_request(user: UserDB, token: str,
                                      request: Request):
     logger.info(f"Verification requested for user {user.id}. "
                 f"Verification token: {token}")
+    logger.info(f"Request {repr(request)} has got.")
 
 
 router = APIRouter()

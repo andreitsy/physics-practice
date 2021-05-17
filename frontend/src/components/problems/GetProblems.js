@@ -66,7 +66,7 @@ class GetProblems extends Component {
                                         <th>ID</th>
                                         <th>Title</th>
                                         <th>Rating</th>
-                                        <th>Time created</th>
+                                        <th>Timestamp</th>
                                         <th>&nbsp;</th>
                                         </tr>
                                     </thead>
