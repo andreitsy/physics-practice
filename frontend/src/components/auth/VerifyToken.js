@@ -1,5 +1,5 @@
 
-async function GetResponseJSON() {
+async function VerifyUserJSON() {
     const tokenString = sessionStorage.getItem('token');
     return fetch('http://localhost:8000/users/me', {
         headers: new Headers({
@@ -8,7 +8,6 @@ async function GetResponseJSON() {
         method: 'get' 
     }).then(function (response) {
         if (!response.ok) {
-            console.log("Not authorizated!");
             return null;
             // throw new Error("HTTP status " + response.status);
           }
@@ -16,4 +15,16 @@ async function GetResponseJSON() {
     })
 }
 
-export default GetResponseJSON;
+export async function isVerifiedUser() {
+  var res = VerifyUserJSON()
+  res.then(json => {
+    if (json !== null && json !== '' && json !== undefined) {
+      return true;
+    } else {
+      return false;
+    }
+    
+  })
+}
+
+export default VerifyUserJSON;

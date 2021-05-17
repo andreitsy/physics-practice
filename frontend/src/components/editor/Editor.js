@@ -3,19 +3,13 @@ import MDEditor, { commands } from '@uiw/react-md-editor';
 import katex from 'katex';
 import 'katex/dist/katex.css';
 
-const initialValue = `#### Решение
-[comment]: <> (введите решение в это поле)
-Пример latex формулы:
-\`\`\`KaTeX
-\\int_{-\\infty}^\\infty e^{-x^2} dx = \\sqrt{\\pi}
-\`\`\`
-`;
 
-export default function Editor({onChange}) {
+export default function Editor({onChange, initVal}) {
   return (
     <MDEditor
       onChange={onChange}
-      value={initialValue}
+      minHeight={200}
+      value={initVal}
       previewOptions={{
         components: {
           code: ({ inline, children, className, ...props }) => {
@@ -40,9 +34,6 @@ export default function Editor({onChange}) {
               return <code dangerouslySetInnerHTML={{ __html: html }} />;
             }
             return <code className={String(className)}>{txt}</code>;
-          },
-          execute: (state: commands.TextState, api: commands.TextApi)  => {
-            console.log('>>>>', state)
           },
         },
       }}

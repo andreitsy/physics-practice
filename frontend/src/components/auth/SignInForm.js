@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -15,7 +14,8 @@ async function loginUser(username, password) {
 }).then(function(response) {
   console.log(response.status);
   if (!response.ok) {
-    console.log("Incorrect login!");
+    alert("Incorrect login!");
+    return false;
     // throw new Error("HTTP status " + response.status);
   }
   return response.json();
@@ -51,8 +51,10 @@ const SignInForm = ({ handleClose }) => {
     e.preventDefault();
     response = loginUser(email, password);
     response.then(function(result) {
-      sessionStorage.setItem('token', result["access_token"]);
-      window.location.reload();
+      if (result && result !== null) {
+        sessionStorage.setItem('token', result["access_token"]);
+        window.location.reload();
+      }
     });    
     handleClose();
   };
