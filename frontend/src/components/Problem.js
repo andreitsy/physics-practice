@@ -1,24 +1,60 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { withRouter } from "react-router";
+import Editor from "./editor/Editor";
+import Viewer from "./editor/Viewer";
+import Button from '@material-ui/core/Button';
 
-function Problem(props) {
-  let { id } = useParams();
-  return (
-    <div className="contact">
+
+class Problem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.match.params.id,
+      answer: "",
+      solution: ""
+    };
+
+    this.handleChange = (e) => {
+      this.state.answer = e.target.value
+      // console.log("this.state.answer\n", this.state.answer)
+    };
+
+    this.handleChangeMD = (value) => {
+      this.state.solution = value
+      // console.log("this.state.solution\n", this.state.solution)
+    };
+  }
+
+  render() {
+    return (
       <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
-          </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">Contact</h1>
-            <p>
-              HERE IS A problem!!!! {id}
-            </p>
-          </div>
-        </div>
+        <br />
+        <center>
+          <h5 class="font-weight-light">Solution {this.state.id} </h5>
+
+          <br />
+          <Editor onChange={this.handleChangeMD} />
+
+        </center>
+        <br />
+        <center>
+          <h5 class="font-weight-light">Answer</h5>
+          <br />
+
+          <input
+            onChange={this.handleChange}
+          />
+        </center>
+        <br />
+        <center>
+          <Button variant="contained" size="small" color="#ff5c5c" onClick={this.handleChange}>
+            Send
+            </Button>
+        </center>
+
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Problem;
+export default withRouter(Problem);

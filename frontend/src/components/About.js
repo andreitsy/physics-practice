@@ -16,9 +16,9 @@ function About() {
             />
           </div>
           <div class="col-lg-5">
-            
             <p>
-            Platform is dedicated to solve a series of physics/mathematics problems and share them with other members.
+              Platform is dedicated to solving series of physics/mathematics 
+              problems and share them with other members.
             </p>
           </div>
         </div>
