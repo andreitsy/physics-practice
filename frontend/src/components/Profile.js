@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ModalDialogUp from "./auth/ModalDialogUp";
 import ModalDialogIn from "./auth/ModalDialogIn";
-import GetResponseJSON from './auth/VerifyToken';
-
+import VerifyUserJSON from './auth/VerifyToken';
+import GetSolutions from './user_solutions/GetSolutions'
 
 class Profile extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class Profile extends Component {
   };
 
   componentDidMount = () => {
-    var res = GetResponseJSON()
+    var res = VerifyUserJSON()
     res.then(json => this.setState({ user_info: json }))
   }
 
@@ -90,14 +89,17 @@ class Profile extends Component {
       return (<div className="contact">
         <div class="container h-100">
           <br />
-          <center>
-            Hello <b>{this.state.user_info["nickname"]}</b>!
-            <br />
-            <br />
-            <Button variant="contained" size="large" color="#ff5c5c" onClick={this.handleUnlogging}>
-              Log out
-          </Button>
-          </center>
+            <center>
+              Hello <b>{this.state.user_info["nickname"]}</b>!
+              <br />
+              <br />
+              <Button variant="contained" size="large" color="#ff5c5c" onClick={this.handleUnlogging}>
+                Log out
+              </Button>
+              <GetSolutions />
+
+              
+            </center>
 
         </div>
       </div>

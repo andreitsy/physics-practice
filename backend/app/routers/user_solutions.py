@@ -2,7 +2,7 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 
 from .users import fastapi_users
-from ..db.user_solutions import Solution
+from ..db.user_solutions import Solution, solutions_collection
 from ..db.users import User
 from ..db.problems import Problem
 from ..dependencies import parse_and_compare_solution, identify_problem_dict, \
@@ -20,7 +20,8 @@ router = APIRouter(
 
 @router.get("/")
 async def read_solutions(user: User = Depends(fastapi_users.current_user())):
-    return {"problems": "ID", "id": user.id}
+    user_dict = await solutions_collection.find_one({"user_id": user.id})
+    return user_dict["solutions"]
 
 
 @router.put(

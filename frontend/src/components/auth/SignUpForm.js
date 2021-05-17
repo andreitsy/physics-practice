@@ -3,6 +3,19 @@ import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+
+async function registerUser(nickname, username, password) {
+  return fetch('http://localhost:8000/auth/register', {
+    method: 'POST',
+    body: JSON.stringify({
+      nickname: nickname,
+      email: username,
+      password: password})
+  }).then(function (response) {
+    return ({json_resp: response.json(), status: response.ok});
+  })
+}
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -30,7 +43,20 @@ const SignUpForm = ({ handleClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(nickname, email, password);
+    var response = registerUser(nickname, email, password);
+    response.then(function ({json_resp, status}) {
+      if (!status) {
+        json_resp.then(function (res) {
+          alert(res["detail"]);
+        })
+        return false;
+      } else {
+        json_resp.then(function (res) {
+          alert("Register new user with email " + res["email"] + " now you can login");
+        })
+      }
+        console.log("registered user", json_resp["nickname"])
+      });
     handleClose();
   };
 
@@ -42,7 +68,7 @@ const SignUpForm = ({ handleClose }) => {
         required
         value={nickname}
         onChange={e => setNickname(e.target.value)}
-      /> 
+      />
       <TextField
         label="Email"
         variant="filled"
