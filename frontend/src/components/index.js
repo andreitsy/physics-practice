@@ -1,4 +1,5 @@
 export { default as Navigation } from "./Navigation";
+export { default as AddProblem } from "./AddProblem";
 export { default as Footer } from "./Footer";
 export { default as Problems } from "./Problems";
 export { default as Problem } from "./Problem";

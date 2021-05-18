@@ -4,6 +4,7 @@ import ModalDialogUp from "./auth/ModalDialogUp";
 import ModalDialogIn from "./auth/ModalDialogIn";
 import VerifyUserJSON from './auth/VerifyToken';
 import GetSolutions from './user_solutions/GetSolutions'
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
   constructor(props) {
@@ -16,8 +17,10 @@ class Profile extends Component {
   }
 
   handleRefresh = () => {
-    this.setState({openUp: false,
-                   openIn: false});
+    this.setState({
+      openUp: false,
+      openIn: false
+    });
   };
 
   componentDidMount = () => {
@@ -54,7 +57,7 @@ class Profile extends Component {
     };
     if (this.state.user_info === null ||
       this.state.user_info === '' ||
-      this.state.user_info === undefined) {  
+      this.state.user_info === undefined) {
       return (
         <div className="contact">
           <div class="container h-100">
@@ -89,17 +92,25 @@ class Profile extends Component {
       return (<div className="contact">
         <div class="container h-100">
           <br />
-            <center>
-              Hello <b>{this.state.user_info["nickname"]}</b>!
-              <br />
-              <br />
-              <Button variant="contained" size="large" color="#ff5c5c" onClick={this.handleUnlogging}>
-                Log out
-              </Button>
-              <GetSolutions />
-
-              
-            </center>
+          <center>
+            Hello <b>{this.state.user_info["nickname"]}</b>!
+            <br />
+              <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+              <ul class="navbar-nav ml-auto">
+                <li class={`nav-item /add_problem`}>
+                  <Link class="nav-link" to="/add_problem">
+                    Add new problem
+                  </Link>
+                </li>
+                <li class="navbar-nav ml-auto">
+                  <Button variant="contained" size="small" color="#ff5c5c" onClick={this.handleUnlogging}>
+                    Log out
+                  </Button>
+                </li>
+              </ul>
+            </nav>
+            <GetSolutions />
+          </center>
 
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navigation, Footer, Problems, About, News, Problem, Profile} from "./components";
+import { Navigation, Footer, Problems, About, News, Problem, Profile, AddProblem} from "./components";
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
           <Route path="/about" exact component={() => <About />} />
           <Route path="/news" exact component={() => <News />} />
           <Route path="/profile" exact component={() => <Profile/>} />
+          <Route path="/add_problem" exact component={() => <AddProblem/>} />
           <Route path="/problem/:id" exact component={() => <Problem />} />
         </Switch>
         
