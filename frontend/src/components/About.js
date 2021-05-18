@@ -19,6 +19,8 @@ function About() {
             <p>
               Platform is dedicated to solving series of physics/mathematics 
               problems and share them with other members.
+
+              Solution and condition formatting supports markdown and <a href="https://www.latex-project.org"> LaTeX</a> for math form. Also it support answer checker in LaTeX.
             </p>
           </div>
         </div>
