@@ -44,7 +44,7 @@ class Problem extends React.Component {
     this.handleSend = (e) => {
       if (this.state.answer == "")
       {
-        alert("Empty answer! Please put something in form answer");
+        alert("Empty answer! Please put something in 'Answer'");
         return null;
       }
       var response = SendSolution({
